@@ -2,13 +2,12 @@
 
 /* appearance */
 static const unsigned int borderpx = 3; /* border pixel size of windows */
-static const unsigned int gappx = 23;   /* gaps size between windows */
+static const unsigned int gappx = 19;   /* gaps size between windows */
 static const unsigned int snap = 32;    /* snap pixel */
 static const unsigned int systrayspacing = 2;
 static const int showbar = 1; /* 0 means no bar */
 static const int topbar = 1;  /* 0 means bottom bar */
-static const char *fonts[] = {"JetBrainsMono Nerd Font:size=12",
-                              "fontawesome:size=12"};
+static const char *fonts[] = {"JetBrainsMono:size=12", "fontawesome:size=12"};
 static const char dmenufont[] = "JetBrainsMono Nerd Font:size=11";
 // background color
 static const char col_gray1[] = "#1f2227";
@@ -137,7 +136,7 @@ static Key keys[] = {
     {MODKEY, XK_comma, focusmon, {.i = -1}},
     {MODKEY, XK_period, focusmon, {.i = +1}},
     {MODKEY, XK_g, setgaps, {0}},
-    {MODKEY | ShiftMask, XK_g, setgaps, {23}},
+    {MODKEY | ShiftMask, XK_g, setgaps, {19}},
     {MODKEY | ShiftMask, XK_b, spawn,
      SHCMD("feh --bg-fill --randomize ~/Pictures/wallpapers/* &")},
     {MODKEY, XK_w, spawn, SHCMD("firefox")},

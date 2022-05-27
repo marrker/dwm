@@ -60,6 +60,7 @@ static const Layout layouts[] = {
   }
 #include "dwm-noborder-6.2.diff"
 #include "dwm-rotatestack-20161021-ab9571b.diff"
+#include "dwm-status2d-6.2.diff"
 /* commands */
 static char dmenumon[2] =
     "0"; /* component of dmenucmd, manipulated in spawn() */
