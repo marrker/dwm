@@ -10,15 +10,15 @@ static const int topbar = 1;  /* 0 means bottom bar */
 static const char *fonts[] = {"JetBrainsMono:size=12", "fontawesome:size=12"};
 static const char dmenufont[] = "JetBrainsMono Nerd Font:size=11";
 // background color
-static const char col_gray1[] = "#1f2227";
+static const char col_gray1[] = "#151515";
 // inactive window border color
-static const char col_gray2[] = "#abb2bf";
+static const char col_gray2[] = "#424242";
 // font color
-static const char col_gray3[] = "#bbbbbb";
+static const char col_gray3[] = "#e8e3e3";
 // current tag and current window font color
 static const char col_gray4[] = "#eeeeee";
 // Top bar second color (blue) and active window border color
-static const char col_cyan[] = "#81a1c1";
+static const char col_cyan[] = "#8da3b9";
 static const char *colors[][3] = {
     /*               fg         bg         border   */
     [SchemeNorm] = {col_gray3, col_gray1, col_gray2},
@@ -39,6 +39,9 @@ static const Rule rules[] = {
     /* class      instance    title       tags mask     isfloating   monitor */
     {"Gimp", NULL, NULL, 0, 1, -1},
     {"firefox", NULL, NULL, 1 << 8, 0, -1},
+    {"discord", NULL, NULL, 1 << 7, 0, -1},
+    {"Steam", NULL, NULL, 1 << 6, 0, -1},
+
 };
 
 /* layout(s) */
@@ -101,7 +104,7 @@ static const char *mutevol[] = {"/usr/bin/pactl", "set-sink-mute", "0",
 static const char *prtscrcmd[] = {"flameshot", "gui", NULL};
 static Key keys[] = {
     /* modifier                     key        function        argument */
-    {0, XK_Print, spawn, {.v = prtscrcmd}},
+    {MODKEY, XK_Print, spawn, {.v = prtscrcmd}},
     {MODKEY, XK_d, spawn, {.v = dmenucmd}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
     {MODKEY, XK_t, togglebar, {0}},
