@@ -104,6 +104,7 @@ static const char *mutevol[] = {"/usr/bin/pactl", "set-sink-mute", "0",
 static const char *prtscrcmd[] = {"flameshot", "gui", NULL};
 static Key keys[] = {
     /* modifier                     key        function        argument */
+    {MODKEY | ShiftMask, XK_y, spawn, SHCMD("flameshot full -p ~/Pictures/screenshots") }, 
     {MODKEY, XK_Print, spawn, {.v = prtscrcmd}},
     {MODKEY, XK_d, spawn, {.v = dmenucmd}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
@@ -136,8 +137,6 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_period, tagmon, {.i = +1}},
     {MODKEY, XK_n, shiftview, {.i = +1}},
     {MODKEY, XK_b, shiftview, {.i = -1}},
-    {MODKEY, XK_comma, focusmon, {.i = -1}},
-    {MODKEY, XK_period, focusmon, {.i = +1}},
     {MODKEY, XK_g, setgaps, {0}},
     {MODKEY | ShiftMask, XK_g, setgaps, {19}},
     {MODKEY | ShiftMask, XK_b, spawn,
