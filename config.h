@@ -14,11 +14,11 @@ static const char col_gray1[] = "#151515";
 // inactive window border color
 static const char col_gray2[] = "#424242";
 // font color
-static const char col_gray3[] = "#e8e3e3";
+static const char col_gray3[] = "#d4be98";
 // current tag and current window font color
 static const char col_gray4[] = "#eeeeee";
 // Top bar second color (blue) and active window border color
-static const char col_cyan[] = "#8da3b9";
+static const char col_cyan[] = "#fbf1c7";
 static const char *colors[][3] = {
     /*               fg         bg         border   */
     [SchemeNorm] = {col_gray3, col_gray1, col_gray2},
@@ -41,6 +41,7 @@ static const Rule rules[] = {
     {"firefox", NULL, NULL, 1 << 8, 0, -1},
     {"discord", NULL, NULL, 1 << 7, 0, -1},
     {"Steam", NULL, NULL, 1 << 6, 0, -1},
+    {"Spotify", NULL, NULL, 1 << 5, 0, -1},
 
 };
 
