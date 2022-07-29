@@ -60,6 +60,7 @@ static const Layout layouts[] = {
   }
 #include "dwm-noborder-6.2.diff"
 #include "dwm-rotatestack-20161021-ab9571b.diff"
+#include "dwm-status2d-6.2.diff"
 /* commands */
 static char dmenumon[2] =
     "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -73,6 +74,8 @@ static Key keys[] = {
     {MODKEY, XK_p, spawn, {.v = dmenucmd}},
     {MODKEY | ShiftMask, XK_Return, spawn, {.v = termcmd}},
     {MODKEY, XK_b, togglebar, {0}},
+    {MODKEY | ShiftMask, XK_j, rotatestack, {.i = +1}},
+    {MODKEY | ShiftMask, XK_k, rotatestack, {.i = -1}},
     {MODKEY, XK_j, focusstack, {.i = +1}},
     {MODKEY, XK_k, focusstack, {.i = -1}},
     {MODKEY, XK_i, incnmaster, {.i = +1}},

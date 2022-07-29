@@ -1,24 +1,11 @@
---- dwm.c	2020-07-09 16:49:10.023585649 +0200
-+++ dwm.c	2020-07-09 16:49:43.497542191 +0200
-@@ -702,7 +702,7 @@ drawbar(Monitor *m)
- 	Client *c;
- 
- 	/* draw status first so it can be overdrawn by tags later */
--	if (m == selmon) { /* status is only drawn on selected monitor */
-+	if (m == selmon || 1) { /* status is only drawn on selected monitor */
- 		drw_setscheme(drw, scheme[SchemeNorm]);
- 		sw = TEXTW(stext) - lrpad + 2; /* 2px right padding */
- 		drw_text(drw, m->ww - sw, 0, sw, bh, 0, stext, 0);
-@@ -1987,9 +1987,11 @@ updatesizehints(Client *c)
- void
- updatestatus(void)
- {
-+	Monitor* m;
- 	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
- 		strcpy(stext, "dwm-"VERSION);
--	drawbar(selmon);
-+	for(m = mons; m; m = m->next)
-+		drawbar(m);
- }
- 
- void
+--- dwm.c	2021-02-27 20:04:32.030570909 -0600
++++ dwm.c	2021-03-16 16:41:21.468077151 -0500
+@@ -719,6 +719,8 @@ drawbar(Monitor *m)
+ 		w = TEXTW(tags[i]);
+ 		drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
+ 		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
++		if (ulineall || m->tagset[m->seltags] & 1 << i) /* if there are conflicts, just move these lines directly underneath both 'drw_setscheme' and 'drw_text' :) */
++			drw_rect(drw, x + ulinepad, bh - ulinestroke - ulinevoffset, w - (ulinepad * 2), ulinestroke, 1, 0);
+ 		if (occ & 1 << i)
+ 			drw_rect(drw, x + boxs, boxs, boxw, boxw,
+ 				m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
